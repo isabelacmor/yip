@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Puppies R Us</title>
+  
+    <script type="text/javascript" src="jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="jquery.autocomplete.min.js"></script>
+    <script type="text/javascript" src="breed-autocomplete.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+
+    <h1> Puppies R Us</h1>
+
+    <h3>Breeds to search for:</h3>
+    <div id="searchfield">
+      <form onkeypress="return event.keyCode != 13;"><input type="text" name="breed" class="biginput" id="autocomplete"></form>
+    </div><!-- @end #searchfield -->
+
+    <button class="search" onclick="getQuery()"> Search </button>
+
+    <div id="outputbox">
+        <li id="outputcontent"></li>
+    </div>
+
+    <div id="outputresults">
+    </div>
+
+    <a href="http://www.puppies.scriptevolution.com/phptest.php?query=term"> query db </a>
+
+</body>
+</html>

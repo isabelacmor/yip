@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Puppies R Us</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script>
+    var searchList = [];
+
+    /*$(function(newItem) {
+        searchList.push(tags.value);
+        document.getElementById("list").appendChild(newItem);
+    });*/
+
+  $(function() {
+    var availableTags = [
+      "Collie",
+      "Corgi",
+      "Husky",
+      "Shiba Inu",
+      "Shih tzu"
+    ];
+    $( "#tags" ).autocomplete({
+      //source: "phptest.php",
+      source: availableTags,
+      minLength: 2,
+      select: function(event,ui){
+        //addToList(tags.value);
+        //console.log(searchList);
+      }
+    });
+  });
+});
+  </script>
+</head>
+
+<body>
+
+    <h1> Puppies R Us</h1>
+
+    <div class="ui-widget">
+        <label for="tags">Tags: </label>
+        <input id="tags">
+    </div>
+
+    <li id="list">
+
+    </li>
+
+    <a href="http://www.puppies.scriptevolution.com/phptest.php?query=term"> query db </a>
+
+</body>
+</html>
