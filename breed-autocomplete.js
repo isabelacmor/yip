@@ -7,12 +7,14 @@ function removeFromList(id) {
 
     //remove from searchList
     var index = id.split("-")[1] - 1;
+    console.log("index: " + index);
 
     if(index != -1) {
         searchList.splice(index, 1);
     }
 
     console.log("new searchList: " + searchList);
+    updateResults();
 }
 
 function updateResults() {
@@ -26,7 +28,7 @@ function updateResults() {
 }
 
 $(function(){
-  var currencies = [
+  var breeds = [
     { value: 'Shiba Inu', data: 'Shiba Inu' },
     { value: 'Shih Tzu', data: 'Shih Tzu' },
     { value: 'Collie', data: 'Collie' },
@@ -36,12 +38,17 @@ $(function(){
   
   // setup autocomplete function pulling from currencies[] array
   $('#autocomplete').autocomplete({
-    lookup: currencies,
+    lookup: breeds,
     onSelect: function (suggestion) {
         console.log("term: " + suggestion.value + ", " + suggestion.data);
 
-      searchList.push(suggestion.value);
-      searchList.sort();
+
+      if(searchList.length >= 3) {
+        alert("You can only add 3 breeds :(");
+      } else if (!searchList.contains(suggestion.value)) {
+        searchList.push(suggestion.value);
+        searchList.sort();
+      }
 
       updateResults();
 
@@ -70,4 +77,11 @@ function getQuery() {
           //updateResults();
       }
     })
+}
+
+Array.prototype.contains = function ( obj ) {
+   for (i in this) {
+       if (this[i] === obj) return true;
+   }
+   return false;
 }
