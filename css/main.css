@@ -511,3 +511,28 @@ label {
   margin-top: 118px;
 }
 
+body > footer > a{
+    text-decoration: none;
+    border-bottom: 1px dotted white;
+    color: white;
+    margin: 0 auto;
+    text-align: center;
+    display: inline;
+}
+
+footer span{
+    display: block
+}
+
+
+footer{
+    width: 960px;
+    margin: 0 auto;
+    margin-top: 300px;
+}
+
+body > footer > a:hover{
+    text-decoration: none;
+    border-bottom: 1px solid white;
+    color: white;
+}
