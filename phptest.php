@@ -26,7 +26,6 @@ function query($term) {
 	$username="dbo551601059";
 	$password="Maximus123!";
 
-
 	//connect to the database
 	$link = mysql_connect($hostname, $username, $password);
 	if (!$link) {

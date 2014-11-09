@@ -79,6 +79,25 @@ function getQuery() {
     })
 }
 
+function uploadImage() {
+  var stringlist = searchList.toString();
+  console.log("searchList...getting query: " + stringlist);
+
+  var formArr = new FormData( this );
+
+  $( '#imageForm' )
+  .submit( function( e ) {
+    $.ajax( {
+      url: 'upload.php',
+      type: 'POST',
+      data: { image: formArr, breeds: stringlist },
+      processData: false,
+      contentType: false
+    } );
+    e.preventDefault();
+  } );
+}
+
 Array.prototype.contains = function ( obj ) {
    for (i in this) {
        if (this[i] === obj) return true;

@@ -13,18 +13,18 @@
 
     <h1> Puppies R Us</h1>
 
-    <h3>Breeds to search for:</h3>
+	<form id="imageForm" enctype="multipart/form-data" method="POST">
+		Choose Image : <input name="img" size="35" type="file" /><br/>
+		<input type="submit" name="submit" value="Upload"/>
+	</form>
+
+    <h3>Breeds to tag:</h3>
     <div id="searchfield">
       <form onkeypress="return event.keyCode != 13;"><input type="text" name="breed" class="biginput" id="autocomplete"></form>
     </div><!-- @end #searchfield -->
 
-    <button class="search" onclick="getQuery()"> Search </button>
-
     <div id="outputbox">
         <li id="outputcontent"></li>
-    </div>
-
-    <div id="outputresults">
     </div>
 
     <a href="http://www.puppies.scriptevolution.com/phptest.php?query=term"> query db </a>
