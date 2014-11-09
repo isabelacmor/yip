@@ -360,3 +360,15 @@ header .sun-wrapper img{
   bottom: 30px;
   right: 30px;
 }
+
+.logo-name{
+  width: 100%;
+  position: absolute;
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 2.4em;
+  z-index: 900;
+  padding-top: 30px;
+  color: black;
+}
