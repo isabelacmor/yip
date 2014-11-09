@@ -306,3 +306,15 @@ header .sun-wrapper img{
   transform: translate(-50%, -50%);
   width: 100%;
 }
+
+#searchB:hover {
+  color:#3B3131;
+  text-decoration: underline;
+}
+
+#searchB {
+  font-size: 1.015em;
+  border:2px solid white;
+  width: 300px;
+  margin: 0 auto;
+}

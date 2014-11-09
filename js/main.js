@@ -20,6 +20,7 @@ angular.module("pupApp", ["ngRoute"])
     .controller("searchQ", function($scope,$routeParams, siteService){
         $scope.addTag = function(input){
             siteService.addingTag(input);
+
         };
     })
     .controller('tagController', function($scope, $routeParams, siteService){
@@ -36,7 +37,11 @@ angular.module("pupApp", ["ngRoute"])
 
         $scope.newDog = function(dogName){
             siteService.addNewDog(dogName);
+            console.log($scope.searchInput, 'SEARCH');
+            $('#searchQ').val('')
+                .trigger('input')
+                .focus();
+
 
         }
     })
-

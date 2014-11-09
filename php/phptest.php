@@ -53,7 +53,7 @@ function query($term) {
 	$result = mysql_query("SELECT breed, url FROM `puppies` WHERE breed LIKE '". $term ."'");
 	//echo "<link rel='stylesheet' type='text/css' href='style.css' />";  
 
-	echo "<h3 class='resultTitle'>Results for: " . $term . "</h3>";
+	echo "<h2 class='resultTitle'>Results for: " . $term . "</h2>";
 	if( mysql_num_rows($result) <= 0 ) {
 		echo "No exact matches found :(";
 	}

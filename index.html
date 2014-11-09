@@ -38,29 +38,29 @@
 <div class="page-container">
     <div class="home-wrapper">
         <div ng-controller="searchQ" class="search">
-            <section>
-                <form>
-                    <span><label for="searchQ">Search for the type of breed:</label></span>
-                    <input ng-model="searchInput" placeholder="" id="searchQ" name="q1" type="text"/>
-                </form>
+        <section>
+            <form>
+                <span><label for="searchQ">Search for the type of breed:</label></span>
+                <input ng-model="searchInput" placeholder="" id="searchQ" name="q1" type="text"/>
+            </form>
 
-            </section>
-            <div ng-controller="tagController">
-                <div class="tagWrapper">
+        </section>
+        <div ng-controller="tagController">
+            <div class="tagWrapper">
                 <span class="tag" ng-repeat="tag in tagArray | orderBy:'name'" ng-click="deleteTag($index)">
                     {{tag.name}}<span class="cancel">x</span>
                 </span>
-                </div>
             </div>
-            <div ng-controller="autoController" class="autoCompleteWrapper">
-                <div ng-switch on="(searchInput.length >= 1)">
-                    <div ng-switch-default>
-                        <!--no names-->
-                    </div>
-                    <div ng-switch-when="true" id="searchResults">
-                        <div class="results" ng-repeat="dogName in dogNameArray | filter:searchInput" ng-click="newDog(dogName)">
-                            <span class="dopNamesResults" >{{dogName}}</span>
-                        </div>
+        </div>
+        <div ng-controller="autoController" class="autoCompleteWrapper">
+            <div ng-switch on="(searchInput.length >= 1)">
+                <div ng-switch-default>
+                    <!--no names-->
+                </div>
+                <div ng-switch-when="true" id="searchResults">
+                    <div class="results" ng-repeat="dogName in dogNameArray | filter:searchInput"
+                         ng-click="newDog(dogName)">
+                        <span class="dopNamesResults">{{dogName}}</span>
                     </div>
                 </div>
             </div>
@@ -76,6 +76,7 @@
         <div id="outputresults">
         </div>
     </div>
+</div>
 </div>
 
 
