@@ -7,6 +7,8 @@
     <meta name="author" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/main.css">
+
+    <link rel="shortcut icon" href="http://puppies.scriptevolution.com/img/barking_dog.ico">
     <!--[if lt IE 9]>
     <script src="//cdn.jsdelivr.net/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -64,7 +66,8 @@
             </section>
             <div ng-controller="tagController">
                 <div class="tagWrapper">
-                    <span class="tag" ng-repeat="tag in tagArray | orderBy:'name'" ng-click="deleteTag($index)">
+                    <!-- | orderBy:'name'-->
+                    <span class="tag" ng-repeat="tag in tagArray" ng-click="deleteTag($index)">
                         {{tag.name}}<span class="cancel">x</span>
                     </span>
                 </div>
