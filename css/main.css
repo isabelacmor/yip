@@ -131,7 +131,6 @@ a:hover {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 50px;
 }
 
 .clearfix:after {
@@ -146,6 +145,7 @@ a:hover {
 .home-wrapper {
     width: 960px;
     margin: 0 auto 200px auto;
+    margin-top: 50px;
 }
 
 header {
@@ -293,6 +293,15 @@ header .sun-wrapper img {
     padding-top: 20px;
     font-family: 'Kreon', serif;
     font-size: 1.5em;
+}
+
+.contrib {
+    padding-top: 20px;
+    font-family: 'Kreon', serif;
+    font-size: 1.4em;
+    font-weight: normal;
+    margin-top: -180px;
+    margin-bottom: 50px;
 }
 
 .dogName {
@@ -491,5 +500,14 @@ label {
   font-family: "Ovo", "Open Sans" Helvetica, Arial, sans-serif;
   color: black;
   font-size: 1.5em;
+}
+
+.description {
+  position: absolute;
+  font-family: 'Kreon', serif;
+  font-size: 1.4em;
+  color: black;
+  right: 235px;
+  margin-top: 118px;
 }
 

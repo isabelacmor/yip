@@ -35,7 +35,9 @@
             <a href="index.html"><img src="http://puppies.scriptevolution.com/img/barking_dog.png"></a>
         </div>
     </div>
+    <h5 class="description">... the dog breed mixer-upper</h5>
 </header>
+<div class="page-container">
 <div class="home-wrapper">
     <div ng-controller="searchQ" class="search">
             <section>
@@ -80,9 +82,12 @@
     </div>
 
     <form id="imageForm" enctype="multipart/form-data" method="POST">
+        <h3 class="contrib">Here, you can upload a picture of your dog - make sure you know exactly what kind of breed your dog is! <br>
+            Thanks for contributing to Yip!</h3>
         <input id = "puppyImage" name="img" size="35" type="file" />
-        <input type="submit" name="submit" value="Upload" class="submit"/>
+        <input id="uploadButton" type="submit" name="submit" value="Upload" class="submit"/>
     </form>
+</div>
 </div>
 
 
