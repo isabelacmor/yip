@@ -136,9 +136,11 @@ a {
 header {
   width: 100%;
   height: 10em;
-  background-color: white;
-  border-bottom: black; }
-  header .logo-wrapper {
+  background-color: #CCF2FF;
+  border-bottom: black; 
+}
+
+header .logo-wrapper {
     font-family: "Ovo", "Open Sans" Helvetica, Arial, sans-serif;
     font-weight: normal;
     float: left;
@@ -241,6 +243,8 @@ header .sun-wrapper img{
   box-sizing: border-box;
   width: 50%;
   float: left;
+  padding-left: 13px;
+  font-weight: bold;
 }
 
 .dog-wrapper + .dog-wrapper {
@@ -317,4 +321,11 @@ header .sun-wrapper img{
   border:2px solid white;
   width: 300px;
   margin: 0 auto;
+}
+
+.addimage {
+  height: 60px;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
 }
