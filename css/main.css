@@ -234,6 +234,11 @@ header .sun-wrapper img{
     #searchResults .results:hover {
       background-color: rgba(128, 128, 128, 0.51); }
 
+
+.results_header {
+  padding-top: 20px;
+}
+
 .dog-wrapper {
   box-sizing: border-box;
   width: 50%;
@@ -247,11 +252,13 @@ header .sun-wrapper img{
 }
 
 .large {
-  border-bottom: 2px dotted black;
+  padding: 20px 0 20px 0;
+  border-bottom: 1px solid #eee;
 }
 
 .small {
-  border-bottom: 2px dotted black;
+  padding: 20px 0 20px 0;
+  border-bottom: 1px solid #eee;
 }
 
 .small .dog-wrapper {
