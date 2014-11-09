@@ -27,14 +27,18 @@
 <body ng-app="pupApp">
 
 <header>
+    <h1 class="logo-name">DodgeHeart PetBreeds</h1>
+
     <div class="logo-wrapper">
         <div class="logo">
+
             <img src="http://puppies.scriptevolution.com/img/barking_dog.png">
         </div>
     </div>
-    <div class="sun-wrapper">
-        <img src="https://cdn4.iconfinder.com/data/icons/vectory-weather-1/40/sun_happy_1-512.png">
 </header>
+<a href="upload.html">
+    <img src="img/add_blue.png" class="addimage"/>
+</a>
 <div class="home-wrapper">
     <div ng-controller="searchQ" class="search">
         <section>
@@ -73,7 +77,7 @@
 
     <form id="imageForm" enctype="multipart/form-data" method="POST">
         Choose Image : <input id = "puppyImage" name="img" size="35" type="file" /><br/>
-        <input type="submit" name="submit" value="Upload"/>
+        <input id="uploadButton" type="submit" name="submit" value="Upload"/>
     </form>
     <div id="outputresults">
     </div>

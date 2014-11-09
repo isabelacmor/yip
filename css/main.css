@@ -4,7 +4,9 @@
         @DonRPage
   */
 @import url(http://fonts.googleapis.com/css?family=Ovo);
+@import url(http://fonts.googleapis.com/css?family=Playfair+Display:400italic,700italic);
 @import url(http://fonts.googleapis.com/css?family=Muli:300,400);
+@import url(http://fonts.googleapis.com/css?family=Kreon);
 /*
  * fonts
  */
@@ -69,7 +71,9 @@ body {
   line-height: 1.5;
   overflow-x: hidden;
   overflow-y: auto;
-  background-color: #26C281; }
+  background-color: #26C281; 
+  background-image: url("../img/groovepaper.png");
+}
 
 a {
   color: black;
@@ -136,9 +140,12 @@ a {
 header {
   width: 100%;
   height: 10em;
-  background-color: white;
-  border-bottom: black; }
-  header .logo-wrapper {
+  background-color: #CCF2FF;
+  border-bottom: black;
+  background-image: url("../img/inspiration-geometry.png"); 
+}
+
+header .logo-wrapper {
     font-family: "Ovo", "Open Sans" Helvetica, Arial, sans-serif;
     font-weight: normal;
     float: left;
@@ -154,8 +161,6 @@ header .sun-wrapper img{
   float: right;
   max-height: 143px;
   width: 10%;
-
-
 }
 
 
@@ -224,19 +229,32 @@ header .sun-wrapper img{
   max-height: 300px;
   overflow-y: scroll;
   position: relative;
+  overflow-x: hidden;
   z-index: 400;
   background: #eee; }
   #searchResults .results {
     cursor: pointer;
     width: 100%;
     height: 100%;
-    border: 1px sold rgba(128, 128, 128, 0.51); }
+    border: 1px solid rgba(128, 128, 128, 0.51); }
     #searchResults .results:hover {
-      background-color: rgba(128, 128, 128, 0.51); }
+      background-color: #e7e7e7; }
+    .results{
+        padding: 5px 6px;
+        color: #26C281;
+        background-color: white;
+    }
 
-
-.results_header {
+.resultTitle {
   padding-top: 20px;
+  font-family: 'Kreon', serif;
+  font-size: 1.5em;
+}
+
+.dogName {
+  font-weight: bold;
+  font-family: 'Kreon', serif;
+  font-size: 1.2em;
 }
 
 .dog-wrapper {
@@ -246,23 +264,37 @@ header .sun-wrapper img{
   padding-right: 7px;
 }
 
-.dog-wrapper + .dog-wrapper {
+/*dog-wrapper + .dog-wrapper {
   padding-left: 7px;
   padding-right: 0;
-}
+}*/
 
 .large {
-  padding: 20px 0 20px 0;
   border-bottom: 1px solid #eee;
+  padding: 20px 0 20px 0;
 }
 
 .small {
-  padding: 20px 0 20px 0;
   border-bottom: 1px solid #eee;
+<<<<<<< HEAD
 }.small .dog-wrapper {
   width: 33.33%;
+=======
+  padding: 20px 0 20px 0;
+}
+
+.small .dog-wrapper {
+  width: 31%;
+>>>>>>> 8335e5de9b448c681d1faef8bfa1880662192dfb
   border-bottom: none;
   padding-bottom: 0;
+  margin-right: 22px;
+}
+
+
+.large .dog-wrapper {
+  width: 47.7%;
+  margin-right: 22px;
 }
 
 
@@ -290,6 +322,10 @@ header .sun-wrapper img{
   position: relative;
   width: 100%;
   overflow: hidden;
+<<<<<<< HEAD
+=======
+  border: 3px solid #eee;
+>>>>>>> 8335e5de9b448c681d1faef8bfa1880662192dfb
 }
 
 .dog-wrapper .dogImage:after {
@@ -304,4 +340,59 @@ header .sun-wrapper img{
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
+}
+
+#searchB:hover, #uploadButton:hover {
+  color:#26C281;
+  background-color: white;
+  border: 2px solid white;
+  -webkit-transition: background-color 1000ms linear;
+  -moz-transition: background-color 1000ms linear;
+  -o-transition: background-color 1000ms linear;
+  -ms-transition: background-color 1000ms linear;
+  transition: background-color 1000ms linear;
+  margin-bottom: 30px;
+}
+
+#searchB, #uploadButton {
+  color: white;
+  cursor: pointer;
+  padding: 10px 0;
+  font-size: 1.015em;
+  border: 2px solid white;
+  width: 300px;
+  margin: 0 auto;
+  background-color: #26C281;
+  -webkit-transition: background-color 1000ms linear;
+  -moz-transition: background-color 1000ms linear;
+  -o-transition: background-color 1000ms linear;
+  -ms-transition: background-color 1000ms linear;
+  transition: background-color 1000ms linear;
+  margin-bottom: 30px;
+  font-family: "Ovo", "Open Sans" Helvetica, Arial, sans-serif;
+  font-size: 1.2em;
+}
+
+.addimage {
+  height: 60px;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+}
+
+.logo-name{
+  width: 100%;
+  position: absolute;
+  text-align: center;
+  font-family: 'Kreon', serif;
+  font-size: 3.4em;
+  z-index: 900;
+  padding-top: 30px;
+  color: black;
+}
+
+.nomatch {
+  font-family: "Ovo", "Open Sans" Helvetica, Arial, sans-serif;
+  font-size: 1.2em;
+  font-weight: normal;
 }
