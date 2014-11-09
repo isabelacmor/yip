@@ -276,16 +276,11 @@ header .sun-wrapper img{
 
 .small {
   border-bottom: 1px solid #eee;
-<<<<<<< HEAD
-}.small .dog-wrapper {
-  width: 33.33%;
-=======
   padding: 20px 0 20px 0;
 }
 
 .small .dog-wrapper {
   width: 31%;
->>>>>>> 8335e5de9b448c681d1faef8bfa1880662192dfb
   border-bottom: none;
   padding-bottom: 0;
   margin-right: 22px;
@@ -322,10 +317,7 @@ header .sun-wrapper img{
   position: relative;
   width: 100%;
   overflow: hidden;
-<<<<<<< HEAD
-=======
   border: 3px solid #eee;
->>>>>>> 8335e5de9b448c681d1faef8bfa1880662192dfb
 }
 
 .dog-wrapper .dogImage:after {
