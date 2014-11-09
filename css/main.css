@@ -111,12 +111,27 @@ a {
   left: 0;
   top: 0; }
 
+
+.page-container {
+  max-width: 960px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.clearfix:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
 /*
  * HOME
  */
 .home-wrapper {
   width: 960px;
-  margin: 0 auto; }
+  margin: 0 auto 200px auto;
+}
 
 header {
   width: 100%;
@@ -127,8 +142,23 @@ header {
     font-family: "Ovo", "Open Sans" Helvetica, Arial, sans-serif;
     font-weight: normal;
     float: left;
-    height: 100%;
-    width: 300px; }
+    margin-left: 50px;
+    height: 100%; }
+
+header .logo-wrapper .logo img{
+  max-height: 169px;
+  width: 40%;
+}
+
+header .sun-wrapper img{
+  float: right;
+  max-height: 143px;
+  width: 10%;
+
+
+}
+
+
 
 .search {
   display: block;
@@ -189,10 +219,10 @@ header {
       text-align: center; }
 
 #searchResults {
-  margin: 0 47px;
+  margin-top: 80px;
+  margin-left: 47px;
   max-height: 300px;
   overflow-y: scroll;
-  top: 60px;
   position: relative;
   z-index: 400;
   background: #eee; }
@@ -203,3 +233,54 @@ header {
     border: 1px sold rgba(128, 128, 128, 0.51); }
     #searchResults .results:hover {
       background-color: rgba(128, 128, 128, 0.51); }
+
+.dog-wrapper {
+  box-sizing: border-box;
+  width: 50%;
+  float: left;
+  padding-right: 7px;
+}
+
+.dog-wrapper + .dog-wrapper {
+  padding-left: 7px;
+  padding-right: 0;
+}
+
+.large {
+  border-bottom: 2px dotted black;
+}
+
+.small {
+  border-bottom: 2px dotted black;
+}
+
+.small .dog-wrapper {
+  width: 25%;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+
+.small.half {
+  box-sizing: border-box;
+  width: 50%;
+  float: left;
+  padding-right: 7px;
+}
+
+.small.half .dog-wrapper {
+  width: 50%;
+}
+
+.small.half + .small.half {
+  box-sizing: border-box;
+  width: 50%;
+  float: left;
+  padding-left: 7px;
+  padding-right: 0;
+  border-left: 2px dotted black;
+}
+
+.dog-wrapper .dogImage img {
+  width: 100%;
+}

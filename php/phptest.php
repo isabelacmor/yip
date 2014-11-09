@@ -59,37 +59,60 @@ function query($term) {
 	}
 
 	//fetch tha data from the database 
+	echo "<section class='large clearfix'>";
 	showDog($result);
+	echo "</section>";
 
 	if(count($breedList) == 3) {
-		echo "<h3>Related results for: " . $term . "</h3>";
+		
+		echo "<h2>Related Mixes:</h2>";
+		
 		$result1 = mysql_query("SELECT breed, url FROM `puppies` WHERE breed LIKE '" . $breedList[0] . "," . $breedList[1] . "'");
-		$result2 = mysql_query("SELECT breed, url FROM `puppies` WHERE breed LIKE '" . $breedList[2] . "'");
+		$result2 = mysql_query("SELECT breed, url FROM `puppies` WHERE breed LIKE '" . $breedList[1] . "," . $breedList[2] . "'");
+		$result3 = mysql_query("SELECT breed, url FROM `puppies` WHERE breed LIKE '" . $breedList[0] . "," . $breedList[2] . "'");
+		//$result2 = mysql_query("SELECT breed, url FROM `puppies` WHERE breed LIKE '" . $breedList[2] . "'");
 
-		showDog($result1);
-		showDog($result2);
+		if(mysql_num_rows($result1) + mysql_num_rows($result2) + mysql_num_rows($result3) > 0) { 
+			echo "<section class='small clearfix'>";
+			showDog($result1);
+			showDog($result2);
+			showDog($result3);
+			echo "</section>";
+		}else{
+			echo "<section class='small clearfix'>No related mixes found :(</section>";
+		}
 
-		$result1 = mysql_query("SELECT breed, url FROM `puppies` WHERE breed LIKE '" . $breedList[1] . "," . $breedList[2] . "'");
-		$result2 = mysql_query("SELECT breed, url FROM `puppies` WHERE breed LIKE '" . $breedList[0] . "'");
+		echo "<h2>Related Purebreds:</h2>";
 
-		showDog($result1);
-		showDog($result2);
-
-		$result1 = mysql_query("SELECT breed, url FROM `puppies` WHERE breed LIKE '" . $breedList[0] . "," . $breedList[2] . "'");
+		$result1 = mysql_query("SELECT breed, url FROM `puppies` WHERE breed LIKE '" . $breedList[0] . "'");
 		$result2 = mysql_query("SELECT breed, url FROM `puppies` WHERE breed LIKE '" . $breedList[1] . "'");
+		$result3 = mysql_query("SELECT breed, url FROM `puppies` WHERE breed LIKE '" . $breedList[2] . "'");
 
-		showDog($result1);
-		showDog($result2);
+		if(mysql_num_rows($result1) + mysql_num_rows($result2) + mysql_num_rows($result3) > 0) { 
+			echo "<section class='small clearfix'>";
+			showDog($result1);
+			showDog($result2);
+			showDog($result3);
+			echo "</section>";
+		}else{
+			echo "<section class='small clearfix'>No related purebreds found :(</section>";
+		}
+
 	} else if(count($breedList) == 2) {
-		echo "<h3>Related results for: " . $term . "</h3>";
-		echo "breed1: " . $breedList[0];
-		echo "breed2: " . $breedList[1];
+		echo "<h2>Related Purebreds:</h2>";
 
 		$result1 = mysql_query("SELECT breed, url FROM `puppies` WHERE breed LIKE '" . $breedList[0] . "'");
 		$result2 = mysql_query("SELECT breed, url FROM `puppies` WHERE breed LIKE '" . $breedList[1] . "'");
 
-		showDog($result1);
-		showDog($result2);
+		if(mysql_num_rows($result1) + mysql_num_rows($result2) > 0) { 
+			echo "<section class='small clearfix'>";
+			showDog($result1);
+			showDog($result2);
+			echo "</section>";
+		}else{
+			echo "<section class='small clearfix'>No related purebreds found :(</section>";
+		}
+
 	} else if(count($breedList) == 1) {
 		echo "No matches found :(";
 	}
@@ -111,11 +134,12 @@ function showDog( $result ){
 	   $breed = $row{'breed'};
 	   $url = $row{'url'};
 
-	   $divDog = "<div class='dog'>";
-	   $divImage = "<div class='container'>";
-	   $display =  $divImage."<img src='".$url."'' /></div>";
+	   $divWrapper = "<div class='dog-wrapper'>";
+	   $divBreed = "<div class='dogName'>";
+	   $divImage = "<div class='dogImage'>";
+	   $display =  $divImage . "<img src='" . $url . "'' /></div>";
 
-	   echo $divDog."Breed: ".$breed."<br>".$display."</div>";
+	   echo $divWrapper . $divBreed . "Breed: " . $breed . "</div>" . $display."</div>";
 	}
 }
 
