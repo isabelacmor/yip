@@ -259,10 +259,8 @@ header .sun-wrapper img{
 .small {
   padding: 20px 0 20px 0;
   border-bottom: 1px solid #eee;
-}
-
-.small .dog-wrapper {
-  width: 25%;
+}.small .dog-wrapper {
+  width: 33.33%;
   border-bottom: none;
   padding-bottom: 0;
 }
@@ -288,6 +286,22 @@ header .sun-wrapper img{
   border-left: 2px dotted black;
 }
 
+.dog-wrapper .dogImage {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.dog-wrapper .dogImage:after {
+  content: '';
+  display: block;
+  padding-bottom: 56.25%;
+}
+
 .dog-wrapper .dogImage img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 100%;
 }
