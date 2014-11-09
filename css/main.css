@@ -528,7 +528,7 @@ footer span{
 footer{
     width: 960px;
     margin: 0 auto;
-    margin-top: 300px;
+    padding-bottom: 40px;
 }
 
 body > footer > a:hover{
