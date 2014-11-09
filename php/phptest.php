@@ -55,41 +55,44 @@ function query($term) {
 
 	echo "<h3>Results for: " . $term . "</h3>";
 	if( mysql_num_rows($result) <= 0 ) {
-		echo "No matches found :(";
+		echo "No exact matches found :(";
 	}
 
 	//fetch tha data from the database 
 	showDog($result);
-/*
+
 	if(count($breedList) == 3) {
 		echo "<h3>Related results for: " . $term . "</h3>";
-		$result1 = mysql_query("SELECT breed, url FROM `puppies` WHERE breed LIKE '". $breedList[0] ."," . $breedList[1]"'");
-		$result2 = mysql_query("SELECT breed, url FROM `puppies` WHERE breed LIKE '". $breedList[2] ."'");
+		$result1 = mysql_query("SELECT breed, url FROM `puppies` WHERE breed LIKE '" . $breedList[0] . "," . $breedList[1] . "'");
+		$result2 = mysql_query("SELECT breed, url FROM `puppies` WHERE breed LIKE '" . $breedList[2] . "'");
 
 		showDog($result1);
 		showDog($result2);
 
-		$result1 = mysql_query("SELECT breed, url FROM `puppies` WHERE breed LIKE '". $breedList[1] ."," . $breedList[2]"'");
-		$result2 = mysql_query("SELECT breed, url FROM `puppies` WHERE breed LIKE '". $breedList[0] ."'");
+		$result1 = mysql_query("SELECT breed, url FROM `puppies` WHERE breed LIKE '" . $breedList[1] . "," . $breedList[2] . "'");
+		$result2 = mysql_query("SELECT breed, url FROM `puppies` WHERE breed LIKE '" . $breedList[0] . "'");
 
 		showDog($result1);
 		showDog($result2);
 
-		$result1 = mysql_query("SELECT breed, url FROM `puppies` WHERE breed LIKE '". $breedList[0] ."," . $breedList[2]"'");
-		$result2 = mysql_query("SELECT breed, url FROM `puppies` WHERE breed LIKE '". $breedList[1] ."'");
+		$result1 = mysql_query("SELECT breed, url FROM `puppies` WHERE breed LIKE '" . $breedList[0] . "," . $breedList[2] . "'");
+		$result2 = mysql_query("SELECT breed, url FROM `puppies` WHERE breed LIKE '" . $breedList[1] . "'");
 
 		showDog($result1);
 		showDog($result2);
 	} else if(count($breedList) == 2) {
 		echo "<h3>Related results for: " . $term . "</h3>";
-		$result2 = mysql_query("SELECT breed, url FROM `puppies` WHERE breed LIKE '". $breedList[0] ."'");
-		$result2 = mysql_query("SELECT breed, url FROM `puppies` WHERE breed LIKE '". $breedList[1] ."'");
+		echo "breed1: " . $breedList[0];
+		echo "breed2: " . $breedList[1];
+
+		$result1 = mysql_query("SELECT breed, url FROM `puppies` WHERE breed LIKE '" . $breedList[0] . "'");
+		$result2 = mysql_query("SELECT breed, url FROM `puppies` WHERE breed LIKE '" . $breedList[1] . "'");
 
 		showDog($result1);
 		showDog($result2);
 	} else if(count($breedList) == 1) {
 		echo "No matches found :(";
-	}*/
+	}
 
 	/*
 	//error message if no matches
