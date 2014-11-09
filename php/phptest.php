@@ -53,7 +53,7 @@ function query($term) {
 	$result = mysql_query("SELECT breed, url FROM `puppies` WHERE breed LIKE '". $term ."'");
 	//echo "<link rel='stylesheet' type='text/css' href='style.css' />";  
 
-	echo "<h3>Results for: " . $term . "</h3>";
+	echo "<h3 class="results_header">Results for: " . $term . "</h3>";
 	if( mysql_num_rows($result) <= 0 ) {
 		echo "No exact matches found :(";
 	}
@@ -65,7 +65,7 @@ function query($term) {
 
 	if(count($breedList) == 3) {
 		
-		echo "<h2>Related Mixes:</h2>";
+		echo "<h2 class="results_header">Related Mixes:</h2>";
 		
 		$result1 = mysql_query("SELECT breed, url FROM `puppies` WHERE breed LIKE '" . $breedList[0] . "," . $breedList[1] . "'");
 		$result2 = mysql_query("SELECT breed, url FROM `puppies` WHERE breed LIKE '" . $breedList[1] . "," . $breedList[2] . "'");
@@ -82,7 +82,7 @@ function query($term) {
 			echo "<section class='small clearfix'>No related mixes found :(</section>";
 		}
 
-		echo "<h2>Related Purebreds:</h2>";
+		echo "<h2 class="results_header">Related Purebreds:</h2>";
 
 		$result1 = mysql_query("SELECT breed, url FROM `puppies` WHERE breed LIKE '" . $breedList[0] . "'");
 		$result2 = mysql_query("SELECT breed, url FROM `puppies` WHERE breed LIKE '" . $breedList[1] . "'");
@@ -99,7 +99,7 @@ function query($term) {
 		}
 
 	} else if(count($breedList) == 2) {
-		echo "<h2>Related Purebreds:</h2>";
+		echo "<h2 class="results_header">Related Purebreds:</h2>";
 
 		$result1 = mysql_query("SELECT breed, url FROM `puppies` WHERE breed LIKE '" . $breedList[0] . "'");
 		$result2 = mysql_query("SELECT breed, url FROM `puppies` WHERE breed LIKE '" . $breedList[1] . "'");
