@@ -228,37 +228,6 @@ angular.module("pupApp")
         }
 
 
-
-
-        // Upload image
-        /*function () {
-          $( '#imageForm' ).submit( function( e ) {
-          e.preventDefault();
-
-          var stringlist = tagArray.toString();
-          console.log("searchList...getting query: " + stringlist);
-
-          // Create a FormData instance
-          var formData = new FormData( $( '#imageForm' )[0] );
-          // Add the file
-          formData.append("breeds", stringlist);
-            
-            $.ajax( {
-              url: '../php/upload.php',
-              type: 'POST',
-              data: formData,
-              processData: false,
-              contentType: false,
-              success: function (data) {
-                console.log(data);
-                alert( "Image uploaded successfully. Click OK to go home." );
-                window.location.replace("http://www.puppy.scriptevolution.com/index2.html");
-              }
-            });
-          });
-        };*/
-
-
     });
 
 
@@ -287,13 +256,53 @@ angular.module("pupApp")
                   //do something after you receive the result
                   console.log(result);
                   $('#outputresults').html(result);
-
-                  //clear the list of breeds searched for
-                  //searchList = [];
-                  //updateResults();
               }
             })
-        }
+        };
+
+        // Upload image
+        $(document).ready ( function () {
+          $( '#imageForm' ).submit( function( e ) {
+          e.preventDefault();
+
+          //string of tagArray names
+            var stringlist = "";
+            for(var i = 0; i < tagArray.length-1; i++) {
+                stringlist = stringlist + tagArray[i].name + ",";
+            }
+            stringlist = stringlist + tagArray[tagArray.length-1].name;
+
+            //string to array, then sort
+            var sortedlist = stringlist.split(",").sort();
+
+            //sorted array to string
+            stringlist = sortedlist.toString();
+
+          console.log("searchList...getting query: " + stringlist);
+
+          /* Create a FormData instance */
+          var formData = new FormData( $( '#imageForm' )[0] );
+          /* Add the file */
+          formData.append("breeds", stringlist);
+            
+            $.ajax( {
+              url: '../php/upload.php',
+              type: 'POST',
+              data: formData,
+              processData: false,
+              contentType: false,
+              success: function (data) {
+                console.log(data);
+                if(data === "SUCCESS_UPLOAD") {
+                    alert("Upload complete! Click OK to go back to main page.");
+                    window.location.replace("http://www.puppies.scriptevolution.com");
+                } else if ( data === "ERROR_UPLOAD") {
+                    alert("Upload failed! Try again.");
+                }
+              }
+            });
+          });
+        });
 
 
 
