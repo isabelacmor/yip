@@ -1,0 +1,267 @@
+/* CSS using SCSS
+        Created By: Don Page on 11/8/14
+        Don.page.work@gmail.com
+        @DonRPage
+  */
+
+@import url(http://fonts.googleapis.com/css?family=Ovo);
+@import url(http://fonts.googleapis.com/css?family=Muli:300,400);
+
+
+/*
+ * fonts
+ */
+@mixin ovo-font {
+  font: {
+    family: "Ovo", "Open Sans" Helvetica, Arial, sans-serif;
+    weight: normal;
+  }
+}
+
+@mixin multi-normal-font {
+  font: "Multi", "Open Sans" Helvetica, Arial, sans-serif;
+  font-weight: 400;
+}
+
+@mixin multi-light-font {
+  font: "Multi", "Open Sans" Helvetica, Arial, sans-serif;
+  font-weight: 300;
+}
+/*
+ * z-index variables
+ */
+$zi10: 1000;
+$zi9: 900;
+$zi8: 800;
+$zi7: 700;
+$zi6: 600;
+$zi5: 500;
+$zi4: 400;
+$zi3: 300;
+$zi2: 200;
+$zi1: 100;
+
+/*
+ * Resets
+ */
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  vertical-align: baseline;
+  background: transparent;
+  list-style-type: none;
+  text-decoration: none;
+  -webkit-margin-start: 0;
+  -webkit-margin-end: 0;
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+  -webkit-touch-callout: none;
+  -khtml-touch-callout: none;
+  -moz-touch-callout: none;
+  -ms-touch-callout: none;
+  -o-touch-callout: none;
+  touch-callout: none;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -ms-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+  -webkit-user-select: text;
+  -khtml-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  -o-user-select: text;
+  user-select: text;
+}
+
+/*
+ * Standard/Global
+ */
+
+html {
+  font-size: 62.5%;
+  -webkit-font-smoothing: antialiased;
+  -khtml-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -ms-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}
+
+body {
+  @include multi-normal-font;
+  width: 100%;
+  font-family: "Montserrat", Helvetica Neue, Helvetica, Arial, sans-serif;
+  color: #272737;
+  font-size: 14px;
+  font-size: 1.4rem;
+  line-height: 1.5;
+  overflow-x: hidden;
+  overflow-y: auto; //possible conflicts
+  background-color: #26C281;
+
+}
+
+a {
+  color: black;
+  text-decoration: none;
+  border-bottom: 1px dotted black;
+  &:hover {
+    border-bottom: 1px solid black;
+  }
+}
+
+::selection {
+  background-color: #9bb7fc;
+  background-color: rgba(155, 183, 252, 0.2);
+  text-shadow: none;
+}
+
+/*
+ * Helper/Tools
+ */
+.unselectable {
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+.pointer-disabled {
+  pointer-events: none !important;
+  cursor: default !important;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+.hidden {
+  display: none;
+}
+
+.fill {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+}
+
+/*
+ * HOME
+ */
+
+.home-wrapper{
+  width: 960px;
+  margin: 0 auto;
+}
+
+
+header{
+  width: 100%;
+  height: 10em;
+  background-color: white;
+  border-bottom: black;
+
+  .logo-wrapper{
+    @include ovo-font;
+    float: left;
+    height: 100%;
+    width: 300px;
+//    background-color: red;
+  }
+}
+
+.search{
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  form{
+    width: 960px;
+    background-color: #eee;
+    margin: 20px auto;
+    height: 164px;
+    box-shadow: 0px 0px 5px 0.00px rgba(0, 0, 0, 0.11);
+    text-align: center;
+    span{
+      @include ovo-font;
+      font-size: 30px;
+      color: #0F131C;
+    }
+    input{
+      @include multi-light-font;
+      position: relative;
+      color: white;
+      margin: 0 auto;
+      height: 70px;
+      font-size: 24px;
+      line-height: 1.5;
+      width: 90%;
+      background-color: #26C281;
+      border: 4px solid #1a8659;
+      border-left: none;
+      border-right: none;
+      border-top: none;
+      padding: 7px 14px;
+      box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      outline: 0;
+
+    }
+  }
+}
+.tagWrapper{
+  background-color: black;
+  margin-top: -129px;
+  margin-right: 59px;
+  .tag{
+    position: relative;
+    z-index: $zi3;
+    float: right;
+    color: #26C281;
+    background-color: white;
+    border: 1px solid #26C281;
+    padding: 10px 9px;
+    cursor: pointer;
+    &:hover{
+      background-color: #e7e7e7;
+    }
+    .cancel{
+      background-color: transparent;
+      color: #f75d45;
+      font-size: 15.5px;
+      padding: 0 5px;
+      text-align: center;
+    }
+  }
+}
+
+#searchResults{
+  margin: 0 47px;
+  max-height: 300px;
+  overflow-y: scroll;
+  top: 60px;
+  position: relative;
+  z-index: $zi4;
+  background: #eee;
+  .results{
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+//    padding: 5px;
+    border: 1px sold rgba(128, 128, 128, 0.51);
+    &:hover{
+      background-color: rgba(128, 128, 128, 0.51);
+    }
+  }
+
+}
+
+
+
