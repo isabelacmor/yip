@@ -27,29 +27,33 @@
 <body ng-app="pupApp">
 
 <header>
+    <h1 class="logo-name">DodgeHeart PetBreeds</h1>
+
     <div class="logo-wrapper">
         <div class="logo">
+
             <img src="http://puppies.scriptevolution.com/img/barking_dog.png">
         </div>
     </div>
-    <div class="sun-wrapper">
-        <img src="https://cdn4.iconfinder.com/data/icons/vectory-weather-1/40/sun_happy_1-512.png">
 </header>
+<a href="upload.html">
+    <img src="img/add_blue.png" class="addimage"/>
+</a>
 <div class="page-container">
     <div class="home-wrapper">
         <div ng-controller="searchQ" class="search">
             <section>
                 <form>
-                    <span><label for="searchQ">Search for the type of breed:</label></span>
+                    <span><label for="searchQ">Search for dog breed:</label></span>
                     <input ng-model="searchInput" placeholder="" id="searchQ" name="q1" type="text"/>
                 </form>
 
             </section>
             <div ng-controller="tagController">
                 <div class="tagWrapper">
-                <span class="tag" ng-repeat="tag in tagArray | orderBy:'name'" ng-click="deleteTag($index)">
-                    {{tag.name}}<span class="cancel">x</span>
-                </span>
+                    <span class="tag" ng-repeat="tag in tagArray | orderBy:'name'" ng-click="deleteTag($index)">
+                        {{tag.name}}<span class="cancel">x</span>
+                    </span>
                 </div>
             </div>
             <div ng-controller="autoController" class="autoCompleteWrapper">
@@ -58,22 +62,23 @@
                         <!--no names-->
                     </div>
                     <div ng-switch-when="true" id="searchResults">
-                        <div class="results" ng-repeat="dogName in dogNameArray | filter:searchInput" ng-click="newDog(dogName)">
-                            <span class="dopNamesResults" >{{dogName}}</span>
+                        <div class="results" ng-repeat="dogName in dogNameArray | filter:searchInput"
+                             ng-click="newDog(dogName)">
+                            <span class="dopNamesResults">{{dogName}}</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- clean up inline styling (styling in general of what I added lol) -->
-    <div class="outer-page" style="margin-top: 200px">
-        <div ng-view>
-        </div>
+        <!-- clean up inline styling (styling in general of what I added lol) -->
+        <div class="outer-page" style="margin-top: 200px">
+            <div ng-view>
+            </div>
 
-        <button class="search" onclick="getQuery()"> Search </button>
-        <div id="outputresults">
+            <button class="search" id="searchB" onclick="getQuery()"> Search </button>
+            <div id="outputresults">
+            </div>
         </div>
     </div>
 </div>
