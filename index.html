@@ -1,56 +1,79 @@
 <!DOCTYPE html>
-<html>
 <head>
-    <title>Puppies R Us</title>
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
-  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-  <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
-  <link rel="stylesheet" href="/resources/demos/style.css">
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <script>
-    var searchList = [];
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Dogs R Us</title>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/main.css">
+    <!--[if lt IE 9]>
+    <script src="//cdn.jsdelivr.net/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
-    /*$(function(newItem) {
-        searchList.push(tags.value);
-        document.getElementById("list").appendChild(newItem);
-    });*/
+    <!-- Scripts -->
+    <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
 
-  $(function() {
-    var availableTags = [
-      "Collie",
-      "Corgi",
-      "Husky",
-      "Shiba Inu",
-      "Shih tzu"
-    ];
-    $( "#tags" ).autocomplete({
-      //source: "phptest.php",
-      source: availableTags,
-      minLength: 2,
-      select: function(event,ui){
-        //addToList(tags.value);
-        //console.log(searchList);
-      }
-    });
-  });
-});
-  </script>
+    <script src="bower_components/angularjs/angular.min.js" type="text/javascript"></script>
+    <script src="bower_components/angularjs/angular-route.min.js"
+            type="text/javascript"></script>
+
+    <script src="js/main.js" type="text/javascript"></script>
+    <script src="js/service.js" type="text/javascript"></script>
+
+    <link rel="shortcut icon" href="">
 </head>
+<body ng-app="pupApp">
 
-<body>
+<header>
+    <div class="logo-wrapper">
+        <div class="logo">
+            <h1>logo</h1>
+        </div>
+    </div>
+</header>
+<div class="home-wrapper">
+    <div ng-controller="searchQ" class="search">
+        <section>
+            <form>
+                <span><label for="searchQ">Search for the type of breed:</label></span>
+                <input ng-model="searchInput" placeholder="" id="searchQ" name="q1" type="text"/>
+            </form>
 
-    <h1> Puppies R Us</h1>
+        </section>
+        <div ng-controller="tagController">
+            <div class="tagWrapper">
+            <span class="tag" ng-repeat="tag in tagArray | orderBy:'name'" ng-click="deleteTag($index)">
+                {{tag.name}}<span class="cancel">x</span>
+            </span>
+            </div>
+        </div>
+        <div ng-controller="autoController" class="autoCompleteWrapper">
+            <div ng-switch on="(searchInput.length >= 1)">
+                <div ng-switch-default>
+                    <!--no names-->
+                </div>
+                <div ng-switch-when="true" id="searchResults">
+                    <div class="results" ng-repeat="dogName in dogNameArray | filter:searchInput" ng-click="newDog(dogName)">
+                        <span class="dopNamesResults" >{{dogName}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-    <div class="ui-widget">
-        <label for="tags">Tags: </label>
-        <input id="tags">
+<!-- clean up inline styling (styling in general of what I added lol) -->
+<div class="outer-page" style="margin-top: 200px">
+    <div ng-view>
     </div>
 
-    <li id="list">
+    <button class="search" onclick="getQuery()"> Search </button>
+    <div id="outputresults">
+    </div>
+</div>
 
-    </li>
-
-    <a href="http://www.puppies.scriptevolution.com/phptest.php?query=term"> query db </a>
 
 </body>
 </html>

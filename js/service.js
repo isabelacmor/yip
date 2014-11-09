@@ -2,12 +2,13 @@
  * Created by donpage on 11/8/14.
  */
 
+ var tagArray = [
+
+        ];
+
 angular.module("pupApp")
     .service("siteService", function(){
 
-        var tagArray = [
-
-        ];
 
         var dogNameArray = [
                 "Affenpinscher",
@@ -227,9 +228,55 @@ angular.module("pupApp")
         }
 
 
+
+
+        // Upload image
+        /*function () {
+          $( '#imageForm' ).submit( function( e ) {
+          e.preventDefault();
+
+          var stringlist = tagArray.toString();
+          console.log("searchList...getting query: " + stringlist);
+
+          // Create a FormData instance
+          var formData = new FormData( $( '#imageForm' )[0] );
+          // Add the file
+          formData.append("breeds", stringlist);
+            
+            $.ajax( {
+              url: '../php/upload.php',
+              type: 'POST',
+              data: formData,
+              processData: false,
+              contentType: false,
+              success: function (data) {
+                console.log(data);
+                alert( "Image uploaded successfully. Click OK to go home." );
+                window.location.replace("http://www.puppy.scriptevolution.com/index2.html");
+              }
+            });
+          });
+        };*/
+
+
+    });
+
+
         // handles the click event, sends the query
-        /*function getQuery() {
-            var stringlist = tagArray.toString();
+        function getQuery() {
+            //string of tagArray names
+            var stringlist = "";
+            for(var i = 0; i < tagArray.length-1; i++) {
+                stringlist = stringlist + tagArray[i].name + ",";
+            }
+            stringlist = stringlist + tagArray[tagArray.length-1].name;
+
+            //string to array, then sort
+            var sortedlist = stringlist.split(",").sort();
+
+            //sorted array to string
+            stringlist = sortedlist.toString();
+
             console.log("searchList...getting query: " + stringlist);
 
             $.ajax({
@@ -248,34 +295,5 @@ angular.module("pupApp")
             })
         }
 
-        // handles the click event, uploads image
-        $(document).ready ( function () {
-          $( '#imageForm' ).submit( function( e ) {
-          e.preventDefault();
-
-          var stringlist = tagArray.toString();
-          console.log("searchList...getting query: " + stringlist);
-
-          // Create a FormData instance 
-          var formData = new FormData( $( '#imageForm' )[0] );
-          // Add the file 
-          formData.append("breeds", stringlist);
-            
-            $.ajax( {
-              url: '../php/upload.php',
-              type: 'POST',
-              data: formData,
-              processData: false,
-              contentType: false,
-              success: function (data) {
-                console.log(data);
-                alert( "Image uploaded successfully. Click OK to go home." );
-                window.location.replace("http://www.puppy.scriptevolution.com/index2.html");
-              }
-            });
-          });
-        });*/
 
 
-
-    });
