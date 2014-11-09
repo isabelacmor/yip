@@ -2,6 +2,9 @@
 //$breeds = array('Breed', 'Breed2', 'Breed3');
 $breeds = $_POST['breeds'];
 $img = $_FILES['img'];
+
+debug_to_console( "breeds: " + $breeds );
+
 if(isset($_POST['submit'])) {
 	if($img['name']=='') {
 		echo "<h2>An Image Please.</h2>";
@@ -57,4 +60,10 @@ if(isset($_POST['submit'])) {
 		}
 	}
 }
+
+function debug_to_console( $data ) {
+
+    echo "<script>console.log( 'Debug Objects: " . $data . "' );</script>";
+}
+
 ?>
