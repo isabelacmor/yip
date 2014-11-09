@@ -1,12 +1,8 @@
 <?php
 //$breeds = array('Breed', 'Breed2', 'Breed3');
 $breeds = $_POST['breeds'];
-$imgArr = $_POST['formArr'];
-
-echo "breeds: " . $breeds . "imgArr: " . $imgArr;
-
+$img = $_FILES['img'];
 if(isset($_POST['submit'])) {
-	$img = $imgArr[0];
 	if($img['name']=='') {
 		echo "<h2>An Image Please.</h2>";
 	}else{
@@ -48,8 +44,7 @@ if(isset($_POST['submit'])) {
 			}else{
 			    //debug_to_console( "Database " . $database . " successfully selected!" );
 			}
-			$breed_string = implode( ',', $breeds);
-			$result = mysql_query("INSERT INTO puppies (breed, url) VALUES ('$breed_string', '$url')");
+			$result = mysql_query("INSERT INTO puppies (breed, url) VALUES ('$breeds', '$url')");
 			if(! $result )
 			{
 			  die('Could not enter data: ' . mysql_error());
