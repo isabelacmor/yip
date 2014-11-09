@@ -224,16 +224,21 @@ header .sun-wrapper img{
   max-height: 300px;
   overflow-y: scroll;
   position: relative;
+  overflow-x: hidden;
   z-index: 400;
   background: #eee; }
   #searchResults .results {
     cursor: pointer;
     width: 100%;
     height: 100%;
-    border: 1px sold rgba(128, 128, 128, 0.51); }
+    border: 1px solid rgba(128, 128, 128, 0.51); }
     #searchResults .results:hover {
-      background-color: rgba(128, 128, 128, 0.51); }
-
+      background-color: #e7e7e7; }
+    .results{
+        padding: 5px 6px;
+        color: #26C281;
+        background-color: white;
+    }
 
 .resultTitle {
   padding-top: 20px;
@@ -312,11 +317,15 @@ header .sun-wrapper img{
 }
 
 #searchB:hover {
-  color:#3B3131;
-  text-decoration: underline;
+  color:#26C281;
+    background: white;
+    border: 1px solid #26C281;
 }
 
 #searchB {
+    color: white;
+    cursor: pointer;
+  padding: 10px 0;
   font-size: 1.015em;
   border:2px solid white;
   width: 300px;

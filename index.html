@@ -41,7 +41,7 @@
         <div ng-controller="searchQ" class="search">
             <section>
                 <form>
-                    <span><label for="searchQ">Search for the type of breed:</label></span>
+                    <span><label for="searchQ">Search for dog breed:</label></span>
                     <input ng-model="searchInput" placeholder="" id="searchQ" name="q1" type="text"/>
                 </form>
 
@@ -73,7 +73,7 @@
             <div ng-view>
             </div>
 
-            <button class="search" onclick="getQuery()"> Search </button>
+            <button class="search" id="searchB" onclick="getQuery()"> Search </button>
             <div id="outputresults">
             </div>
         </div>
