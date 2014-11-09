@@ -55,7 +55,7 @@ function query($term) {
 
 	echo "<h2 class='resultTitle'>Results for: " . $term . "</h2>";
 	if( mysql_num_rows($result) <= 0 ) {
-		echo "No exact matches found :(";
+		echo "<h4 class='nomatch'>No exact matches found :(</h4>";
 	}
 
 	//fetch tha data from the database 
@@ -79,7 +79,7 @@ function query($term) {
 			showDog($result3);
 			echo "</section>";
 		}else{
-			echo "<section class='small clearfix'>No related mixes found :(</section>";
+			echo "<section class='small clearfix'><h4 class='nomatch'>No related mixes found :(</h4></section>";
 		}
 
 		echo "<h2 class='resultTitle'>Related Purebreds:</h2>";
@@ -95,7 +95,7 @@ function query($term) {
 			showDog($result3);
 			echo "</section>";
 		}else{
-			echo "<section class='small clearfix'>No related purebreds found :(</section>";
+			echo "<section class='small clearfix'><h4 class='nomatch'>No related purebreds found :(</h4></section>";
 		}
 
 	} else if(count($breedList) == 2) {
@@ -110,7 +110,7 @@ function query($term) {
 			showDog($result2);
 			echo "</section>";
 		}else{
-			echo "<section class='small clearfix'>No related purebreds found :(</section>";
+			echo "<section class='small clearfix'><h4 class='nomatch'>No related purebreds found :(</h4></section>";
 		}
 
 	} else if(count($breedList) == 1) {
