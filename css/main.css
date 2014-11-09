@@ -6,6 +6,7 @@
 @import url(http://fonts.googleapis.com/css?family=Ovo);
 @import url(http://fonts.googleapis.com/css?family=Playfair+Display:400italic,700italic);
 @import url(http://fonts.googleapis.com/css?family=Muli:300,400);
+@import url(http://fonts.googleapis.com/css?family=Kreon);
 /*
  * fonts
  */
@@ -70,7 +71,9 @@ body {
   line-height: 1.5;
   overflow-x: hidden;
   overflow-y: auto;
-  background-color: #26C281; }
+  background-color: #26C281; 
+  background-image: url("../img/groovepaper.png");
+}
 
 a {
   color: black;
@@ -138,7 +141,8 @@ header {
   width: 100%;
   height: 10em;
   background-color: #CCF2FF;
-  border-bottom: black; 
+  border-bottom: black;
+  background-image: url("../img/inspiration-geometry.png"); 
 }
 
 header .logo-wrapper {
@@ -243,10 +247,14 @@ header .sun-wrapper img{
 
 .resultTitle {
   padding-top: 20px;
+  font-family: 'Kreon', serif;
+  font-size: 1.5em;
 }
 
 .dogName {
   font-weight: bold;
+  font-family: 'Kreon', serif;
+  font-size: 1.2em;
 }
 
 .dog-wrapper {
@@ -353,6 +361,8 @@ header .sun-wrapper img{
   -ms-transition: background-color 1000ms linear;
   transition: background-color 1000ms linear;
   margin-bottom: 30px;
+  font-family: "Ovo", "Open Sans" Helvetica, Arial, sans-serif;
+  font-size: 1.2em;
 }
 
 .addimage {
@@ -366,10 +376,15 @@ header .sun-wrapper img{
   width: 100%;
   position: absolute;
   text-align: center;
-  font-family: 'Playfair Display', serif;
-  font-style: italic;
-  font-size: 2.4em;
+  font-family: 'Kreon', serif;
+  font-size: 3.4em;
   z-index: 900;
   padding-top: 30px;
   color: black;
+}
+
+.nomatch {
+  font-family: "Ovo", "Open Sans" Helvetica, Arial, sans-serif;
+  font-size: 1.2em;
+  font-weight: normal;
 }
