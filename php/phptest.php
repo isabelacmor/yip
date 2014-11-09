@@ -114,7 +114,7 @@ function query($term) {
 		}
 
 	} else if(count($breedList) == 1) {
-		echo "No matches found :(";
+		//echo "No matches found :(";
 	}
 
 	/*
@@ -139,7 +139,7 @@ function showDog( $result ){
 	   $divImage = "<div class='dogImage'>";
 	   $display =  $divImage . "<img src='" . $url . "'' /></div>";
 
-	   echo $divWrapper . $divBreed . "Breed: " . $breed . "</div>" . $display."</div>";
+	   echo $divWrapper . $divBreed . "" . $breed . "</div>" . $display."</div>";
 	}
 }
 
