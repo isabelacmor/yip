@@ -221,11 +221,11 @@ angular.module("pupApp")
                     console.log('this dog is already made');
                     return;
                 }
-
             }
             console.log(dogName);
             tagArray.push({name: dogName})
         }
+
 
 
     });
@@ -270,37 +270,45 @@ angular.module("pupApp")
             for(var i = 0; i < tagArray.length-1; i++) {
                 stringlist = stringlist + tagArray[i].name + ",";
             }
+            if(tagArray.length != 0){
+
+                $('#spinner').css('visibility', 'visible');
+
             stringlist = stringlist + tagArray[tagArray.length-1].name;
 
-            //string to array, then sort
-            var sortedlist = stringlist.split(",").sort();
+                //string to array, then sort
+                var sortedlist = stringlist.split(",").sort();
 
-            //sorted array to string
-            stringlist = sortedlist.toString();
+                //sorted array to string
+                stringlist = sortedlist.toString();
 
-          console.log("searchList...getting query: " + stringlist);
+              console.log("searchList...getting query: " + stringlist);
 
-          /* Create a FormData instance */
-          var formData = new FormData( $( '#imageForm' )[0] );
-          /* Add the file */
-          formData.append("breeds", stringlist);
-            
-            $.ajax( {
-              url: '../php/upload.php',
-              type: 'POST',
-              data: formData,
-              processData: false,
-              contentType: false,
-              success: function (data) {
-                console.log(data);
-                if(data === "SUCCESS_UPLOAD") {
-                    alert("Upload complete! Click OK to go back to main page.");
-                    window.location.replace("http://www.puppies.scriptevolution.com");
-                } else if ( data === "ERROR_UPLOAD") {
-                    alert("Upload failed! Try again.");
-                }
-              }
-            });
+              /* Create a FormData instance */
+              var formData = new FormData( $( '#imageForm' )[0] );
+              /* Add the file */
+              formData.append("breeds", stringlist);
+                
+                $.ajax( {
+                  url: '../php/upload.php',
+                  type: 'POST',
+                  data: formData,
+                  processData: false,
+                  contentType: false,
+                  success: function (data) {
+                    console.log(data);
+                    $('#spinner').css('visibility', 'hidden');
+                    if(data === "SUCCESS_UPLOAD") {
+                        alert("Upload complete! Click OK to go back to main page.");
+                        window.location.replace("http://www.puppies.scriptevolution.com");
+                    } else if ( data === "ERROR_UPLOAD") {
+                        alert("Upload failed! Try again.");
+                    }
+                  }
+                });
+            }else{
+                alert("Please add a dog breed!");
+            }
           });
         });
 
