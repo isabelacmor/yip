@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Dogs R Us</title>
+    <title>Yip!</title>
     <meta charset="utf-8">
     <meta name="description" content="">
     <meta name="author" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/main.css">
+
+    <link rel="shortcut icon" href="http://puppies.scriptevolution.com/img/barking_dog.ico">
     <!--[if lt IE 9]>
     <script src="//cdn.jsdelivr.net/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -20,6 +22,7 @@
             type="text/javascript"></script>
 
     <script src="js/main.js" type="text/javascript"></script>
+    <script src="js/velocity.js" type="text/javascript"></script>
     <script src="js/service.js" type="text/javascript"></script>
 
     <link rel="shortcut icon" href="">
@@ -27,7 +30,7 @@
 <body ng-app="pupApp">
 
 <header>
-    <h1 class="logo-name">DodgeHeart PetBreeds</h1>
+    <a href="index.html"><h1 class="logo-name">Yip!</h1></a>
 
     <div class="logo-wrapper">
         <div class="logo">
@@ -35,45 +38,49 @@
             <img src="http://puppies.scriptevolution.com/img/barking_dog.png">
         </div>
     </div>
+    <h5 class="description">... the dog breed mixer-upper</h5>
 </header>
 <a href="upload.html">
-    <img src="img/add_blue.png" class="addimage"/>
+    <img src="img/add_blue.png" class="addimage" alt="Upload a picture" title="Upload a picture"/>
 </a>
 <div class="page-container">
     <div class="home-wrapper">
         <div ng-controller="searchQ" class="search">
             <section>
                 <form>
-                    <span><label for="searchQ">Search for dog breed:</label></span>
-                    <input ng-model="searchInput" placeholder="" id="searchQ" name="q1" type="text"/>
+                    <span><label for="searchQ">Search for Dog Breed:</label></span>
+                    <div class="input-wrapper">
+                        <input ng-model="searchInput" placeholder="" id="searchQ" name="q1" type="text"/>
+                        <div ng-controller="autoController" class="autoCompleteWrapper">
+                            <div ng-switch on="(searchInput.length >= 1)">
+                                <div ng-switch-default>
+                                    <!--no names-->
+                                </div>
+                                <div ng-switch-when="true" id="searchResults">
+                                    <div class="results" ng-repeat="dogName in dogNameArray | filter:searchInput"
+                                         ng-click="newDog(dogName)">
+                                        <span class="dopNamesResults">{{dogName}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </form>
 
             </section>
             <div ng-controller="tagController">
                 <div class="tagWrapper">
-                    <span class="tag" ng-repeat="tag in tagArray | orderBy:'name'" ng-click="deleteTag($index)">
+                    <!-- | orderBy:'name'-->
+                    <span class="tag" ng-repeat="tag in tagArray" ng-click="deleteTag($index)">
                         {{tag.name}}<span class="cancel">x</span>
                     </span>
-                </div>
-            </div>
-            <div ng-controller="autoController" class="autoCompleteWrapper">
-                <div ng-switch on="(searchInput.length >= 1)">
-                    <div ng-switch-default>
-                        <!--no names-->
-                    </div>
-                    <div ng-switch-when="true" id="searchResults">
-                        <div class="results" ng-repeat="dogName in dogNameArray | filter:searchInput"
-                             ng-click="newDog(dogName)">
-                            <span class="dopNamesResults">{{dogName}}</span>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
 
         <!-- clean up inline styling (styling in general of what I added lol) -->
         <div class="outer-page" style="margin-top: 200px">
-            <div ng-view>
+            <div>
             </div>
 
             <button class="search" id="searchB" onclick="getQuery()"> Search </button>
@@ -83,6 +90,10 @@
     </div>
 </div>
 
+<footer>
+    <a href="https://github.com/tylerl0706">Tyler</a> | <a href="https://github.com/donpage">Don</a> | <a href="https://github.com/isabellacmor">Isabella</a> | <a href="https://github.com/Magnilucent">Eric</a> | <a href="https://github.com/Samualaaryon06">Sam</a> |
+    <a href="https://github.com/18DaniellaH">Daniellah</a> | <a href="https://github.com/18KathrynQ">Kathryn</a>
+</footer>
 
 </body>
 </html>

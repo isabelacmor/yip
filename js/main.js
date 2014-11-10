@@ -1,29 +1,20 @@
 /**
  * Created by donpage on 11/8/14.
  */
-angular.module("pupApp", ["ngRoute"])
-    .config(function ($routeProvider) {
-        $routeProvider
-            .when("/", {
-                controller: "homeController",
-                templateUrl: "parts/home.html"
-            })
-            .otherwise({
-                redirectTo: "/"
-            })
+angular.module("pupApp", [])
 
-    })
 
-    .controller("homeController", function ($scope, $routeParams, siteService) {
+    .controller("homeController", function ($scope, siteService) {
         $scope.testing = 'GOT TEST';
+        siteService.doAnimations();
     })
-    .controller("searchQ", function($scope,$routeParams, siteService){
+    .controller("searchQ", function($scope, siteService){
         $scope.addTag = function(input){
             siteService.addingTag(input);
 
         };
     })
-    .controller('tagController', function($scope, $routeParams, siteService){
+    .controller('tagController', function($scope, siteService){
         $scope.tagArray = siteService.getTagArray();
 
         $scope.deleteTag = function(idx){
@@ -32,7 +23,7 @@ angular.module("pupApp", ["ngRoute"])
         }
     })
 
-    .controller('autoController', function($scope, $routeParams, siteService){
+    .controller('autoController', function($scope, siteService){
         $scope.dogNameArray = siteService.getDogNameArray();
 
         $scope.newDog = function(dogName){
