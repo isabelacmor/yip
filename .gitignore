@@ -15,4 +15,6 @@
 *.iml
 *.iws
 
+php/dbconnect.php
+
 

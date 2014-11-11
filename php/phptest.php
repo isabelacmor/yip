@@ -1,6 +1,9 @@
 <?php
 
 
+include 'dbconnect.php';
+
+
 if(isset($_GET['query'])) {
 	echo "<h3>Searching for: " . $_GET['query'] . "</h3>";
 
@@ -21,34 +24,8 @@ function query($term) {
 	//convert query to array
 	$breedList = explode(",", $term);
 
-	//debug_to_console( "Connecting to db" );
+	$link = connect();
 
-	//ENTER YOUR DATABASE CONNECTION INFO BELOW:
-	$hostname="db551601059.db.1and1.com";
-	$database="db551601059";
-	$username="dbo551601059";
-	$password="Maximus123!";
-
-	//connect to the database
-	$link = mysql_connect($hostname, $username, $password);
-	if (!$link) {
-	die('Connection failed: ' . mysql_error());
-	}
-	else{
-	     //debug_to_console( "Connection to MySQL server " .$hostname . " successful!" );
-	}
-
-	//select the database to work with 
-	$db_selected = mysql_select_db($database, $link);
-	if (!$db_selected) {
-	    die ('Can\'t select database: ' . mysql_error());
-	}
-	else {
-	    //debug_to_console( "Database " . $database . " successfully selected!" );
-	}
-
-	//execute the SQL query and return records
-	//$result = mysql_query("SELECT breed, url FROM puppies");
 	//exact match
 	$result = mysql_query("SELECT breed, url FROM `puppies` WHERE breed LIKE '". $term ."'");
 	//echo "<link rel='stylesheet' type='text/css' href='style.css' />";  
@@ -116,12 +93,6 @@ function query($term) {
 	} else if(count($breedList) == 1) {
 		//echo "No matches found :(";
 	}
-
-	/*
-	//error message if no matches
-	if( mysql_num_rows($result) <= 0 ) {
-		echo "No matches found :(";
-	}*/
 
 	//close the connection
 	mysql_close($link);

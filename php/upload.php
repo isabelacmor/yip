@@ -1,5 +1,9 @@
 <?php
 
+
+include 'dbconnect.php';
+
+
 $breeds = $_POST['breeds'];
 $img = $_FILES['img'];
 
@@ -29,31 +33,7 @@ if(isset($_POST['submit'])) {
 		$url=$pms['data']['link'];
 
 		if($url!="") {
-			$hostname="db551601059.db.1and1.com";
-			$database="db551601059";
-			$username="dbo551601059";
-			$password="Maximus123!";
-
-			//connect to the database
-			$link = mysql_connect($hostname, $username, $password);
-			if (!$link) {
-				die('Connection failed: ' . mysql_error());
-			}else{
-			     //debug_to_console( "Connection to MySQL server " .$hostname . " successful!" );
-			}
-
-			//select the database to work with 
-			$db_selected = mysql_select_db($database, $link);
-			if (!$db_selected) {
-			    die ('Can\'t select database: ' . mysql_error());
-			} else {
-			    //debug_to_console( "Database " . $database . " successfully selected!" );
-			}
-
-			$result = mysql_query("INSERT INTO puppies (breed, url) VALUES ('$breeds', '$url')");
-			if(! $result ) {
-			  die('Could not enter data: ' . mysql_error());
-			}
+			$conn = connect();
 
 			//return success message
 			echo "SUCCESS_UPLOAD";
