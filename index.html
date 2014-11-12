@@ -47,7 +47,7 @@
     <div class="home-wrapper">
         <div ng-controller="searchQ" class="search">
             <section>
-                <form>
+                <form ng-submit="enterSubmit()">
                     <span><label for="searchQ">Search for Dog Breed:</label></span>
                     <div class="input-wrapper">
                         <input ng-model="searchInput" placeholder="" id="searchQ" name="q1" type="text"/>
@@ -57,9 +57,9 @@
                                     <!--no names-->
                                 </div>
                                 <div ng-switch-when="true" id="searchResults">
-                                    <div class="results" ng-repeat="dogName in dogNameArray | filter:searchInput"
+                                    <div  class="results" ng-repeat="dogName in dogNameArray | filter:searchInput track by $index"
                                          ng-click="newDog(dogName)">
-                                        <span class="dopNamesResults">{{dogName}}</span>
+                                        <span id="result{{$index}}" class="dopNamesResults">{{dogName}}</span>
                                     </div>
                                 </div>
                             </div>
