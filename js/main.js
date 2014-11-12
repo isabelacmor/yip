@@ -13,6 +13,12 @@ angular.module("pupApp", [])
             siteService.addingTag(input);
 
         };
+
+        $scope.enterSubmit = function(){
+            var firstResult = document.querySelector('#result0').innerHTML;
+            //each result from the search feature is track by their index, so whatever is first in this index will be submitted.
+            siteService.addNewDog(firstResult);
+        }
     })
     .controller('tagController', function($scope, siteService){
         $scope.tagArray = siteService.getTagArray();
