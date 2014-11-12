@@ -16,5 +16,6 @@
 *.iws
 
 php/dbconnect.php
+dbconnect.php
 
 
