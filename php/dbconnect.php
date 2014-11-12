@@ -27,4 +27,8 @@ function connect() {
 	return $link;
 }
 
+function API_Key() {
+	return "1a271db4205854b";
+}
+
 ?>

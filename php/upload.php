@@ -13,7 +13,7 @@ if(isset($_POST['submit'])) {
 		echo "<h2>An Image Please.</h2>";
 	} else {
 		$filename = $img['tmp_name'];
-		$client_id="1a271db4205854b";
+		$client_id = API_Key();
 		$handle = fopen($filename, "r");
 		$data = fread($handle, filesize($filename));
 		$pvars   = array('image' => base64_encode($data));
@@ -34,6 +34,11 @@ if(isset($_POST['submit'])) {
 
 		if($url!="") {
 			$conn = connect();
+
+			$result = mysql_query("INSERT INTO puppies (breed, url) VALUES ('$breeds', '$url')");
+			if(! $result ) {
+			  die('Could not enter data: ' . mysql_error());
+			}
 
 			//return success message
 			echo "SUCCESS_UPLOAD";
