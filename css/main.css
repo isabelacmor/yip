@@ -535,3 +535,8 @@ body > footer > a:hover{
     border-bottom: 1px solid white;
     color: white;
 }
+
+.selected{
+    border-bottom: 1px dotted gray !important;
+    color: #f75d45 !important;
+}

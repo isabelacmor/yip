@@ -46,21 +46,37 @@
                 <form>
                     <span><label for="searchQ">Add Dog Breed:</label></span>
                     <div class="input-wrapper">
-                        <input ng-model="searchInput" placeholder="" id="searchQ" name="q1" type="text"/>
+                        <input ng-keydown="key($event)" ng-model="searchInput" placeholder="" id="searchQ" name="q1" type="text"/>
                         <div ng-controller="autoController" class="autoCompleteWrapper">
                             <div ng-switch on="(searchInput.length >= 1)">
                                 <div ng-switch-default>
                                     <!--no names-->
                                 </div>
                                 <div ng-switch-when="true" id="searchResults">
-                                    <div class="results" ng-repeat="dogName in dogNameArray | filter:searchInput"
-                                         ng-click="newDog(dogName)">
-                                        <span class="dopNamesResults">{{dogName}}</span>
+                                    <div  class="results" ng-repeat="dogName in dogNameArray | filter:searchInput track by $index"
+                                          ng-click="newDog(dogName)">
+                                        <span id="result{{$index}}" class="dopNamesResults">{{dogName}}</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <!--<div class="input-wrapper">-->
+                        <!--<input ng-model="searchInput" placeholder="" id="searchQ" name="q1" type="text"/>-->
+                        <!--<div ng-controller="autoController" class="autoCompleteWrapper">-->
+                            <!--<div ng-switch on="(searchInput.length >= 1)">-->
+                                <!--<div ng-switch-default>-->
+                                    <!--&lt;!&ndash;no names&ndash;&gt;-->
+                                <!--</div>-->
+                                <!--<div ng-switch-when="true" id="searchResults">-->
+                                    <!--<div class="results" ng-repeat="dogName in dogNameArray | filter:searchInput"-->
+                                         <!--ng-click="newDog(dogName)">-->
+                                        <!--<span class="dopNamesResults">{{dogName}}</span>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
                 </form>
 
             </section>
