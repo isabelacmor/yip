@@ -47,10 +47,10 @@
     <div class="home-wrapper">
         <div ng-controller="searchQ" class="search">
             <section>
-                <form ng-submit="enterSubmit()">
+                <form>
                     <span><label for="searchQ">Search for Dog Breed:</label></span>
                     <div class="input-wrapper">
-                        <input ng-model="searchInput" placeholder="" id="searchQ" name="q1" type="text"/>
+                        <input ng-keydown="key($event)" ng-model="searchInput" placeholder="" id="searchQ" name="q1" type="text"/>
                         <div ng-controller="autoController" class="autoCompleteWrapper">
                             <div ng-switch on="(searchInput.length >= 1)">
                                 <div ng-switch-default>
