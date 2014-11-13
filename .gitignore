@@ -16,6 +16,7 @@
 *.iws
 
 ## Database connection 
+## Actually connect to your database and select a table
 php/dbconnect.php
 
 
