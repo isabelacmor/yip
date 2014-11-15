@@ -1,17 +1,21 @@
 <?php
 
-
+// Handles actual connection with the MySQL database
 include 'dbconnect.php';
 
 
+// User-provided list of dog breeds their photo matches
 $breeds = $_POST['breeds'];
+// User-provided photo of a dog
 $img = $_FILES['img'];
 
 if(isset($_POST['submit'])) {
 	
+	// No image given
 	if($img['name']=='') {
 		echo "<h2>An Image Please.</h2>";
 	} else {
+		// Upload setup
 		$filename = $img['tmp_name'];
 		$client_id = API_Key();
 		$handle = fopen($filename, "r");
@@ -19,6 +23,8 @@ if(isset($_POST['submit'])) {
 		$pvars   = array('image' => base64_encode($data));
 		$timeout = 30;
 
+		// Imgur API calls
+		// $url stores the image's URL uploaded on Imgur
 		$curl = curl_init();
 		curl_setopt($curl, CURLOPT_URL, 'https://api.imgur.com/3/image.json');
 		curl_setopt($curl, CURLOPT_TIMEOUT, $timeout);
@@ -32,6 +38,7 @@ if(isset($_POST['submit'])) {
 
 		$url=$pms['data']['link'];
 
+		// Add list of breeds and image link to database
 		if($url!="") {
 			$conn = connect();
 
@@ -40,13 +47,12 @@ if(isset($_POST['submit'])) {
 			  die('Could not enter data: ' . mysql_error());
 			}
 
-			//return success message
+			// Return success message
 			echo "SUCCESS_UPLOAD";
 			mysql_close($conn);
 		} else {
-			//return error message
+			// Return error message
 			echo "ERROR_UPLOAD";
-			//echo $pms['data']['error'];  
 		}
 	}
 }
